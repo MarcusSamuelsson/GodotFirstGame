@@ -4,8 +4,9 @@ using System;
 public partial class bullet : Sprite2D{
 	[Export]
 	public float speed = 10f;
+	private Vector2 forward;
 	public override void _Process(double delta) {
-		Vector2 forward = new Vector2(Mathf.Cos(Rotation)*speed, Mathf.Sin(Rotation)*speed);
+		forward = new Vector2(Mathf.Cos(Rotation)*speed, Mathf.Sin(Rotation)*speed);
 		this.Position += forward;
 	}
 
@@ -14,9 +15,11 @@ public partial class bullet : Sprite2D{
 		
 		if(body is Enemy) {
 			Enemy enemy = body as Enemy;
-			enemy.health -= 10;
-			this.QueueFree();
+			enemy.TakeDamage(10);
+			enemy.Knockback(forward, 1f);
 		}
+
+		this.QueueFree();
 	}
 
 	private void _on_timer_timeout() {

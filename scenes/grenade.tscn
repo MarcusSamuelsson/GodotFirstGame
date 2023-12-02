@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4gk1hltkyko2"]
+
+[ext_resource type="Texture2D" uid="uid://bjjdbgn3q5i4u" path="res://_Imports/Grenade.png" id="1_dnvnx"]
+[ext_resource type="Script" path="res://scripts/Grenade.cs" id="2_ep34i"]
+
+[node name="Grenade" type="Sprite2D"]
+z_index = 2
+position = Vector2(-396, 65)
+texture = ExtResource("1_dnvnx")
+script = ExtResource("2_ep34i")
+fuse_time = 2.0
+explosion_radius = 75.0
+explosion_force = 50.0
+
+[node name="TimeUntilBoom" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimeUntilBoom" to="." method="_on_time_until_boom_timeout"]

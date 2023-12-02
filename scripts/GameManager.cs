@@ -17,6 +17,7 @@ public partial class GameManager : Node2D
 
 	public void increaseScore(int amount) {
 		score += amount;
-		GetParent().GetNode<Control>("UI").GetChild(0).GetChild<Label>(0).Text = "Score: " + score;
+		GetParent().GetNode<CanvasLayer>("CanvasLayer").
+		GetChild(0).GetChild(0).GetChild<Label>(1).Text = "Score: " + score;
 	}
 }

@@ -1,0 +1,6 @@
+[gd_resource type="AnimatedTexture" load_steps=2 format=3 uid="uid://f0oypsu7ygn1"]
+
+[ext_resource type="Texture2D" uid="uid://dfdysu6nqs8xn" path="res://_Imports/enemy_anim.png" id="1_m0uo1"]
+
+[resource]
+frame_0/texture = ExtResource("1_m0uo1")

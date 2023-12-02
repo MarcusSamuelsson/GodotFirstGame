@@ -11,7 +11,7 @@ public partial class gun : Sprite2D {
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		bulletScene = GD.Load("res://scenes/Bullet.tscn") as PackedScene;
+		bulletScene = GD.Load("res://scenes/bullet.tscn") as PackedScene;
 	}
 
 	private void Shoot() {
@@ -26,6 +26,7 @@ public partial class gun : Sprite2D {
 		bullet.Rotation = this.GlobalRotation-this.Rotation;
 		GetParent().GetParent().AddChild(bullet);
 		GetChild<Timer>(0).Start(fireRate);
+		//GetParent().GetChild(1).GetChild<CameraShake>(0).StartShake(1f, 0.1f);
 		canShoot = false;
 	}
 
